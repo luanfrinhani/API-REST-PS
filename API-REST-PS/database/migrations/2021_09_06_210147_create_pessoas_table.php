@@ -14,9 +14,17 @@ class CreatePessoasTable extends Migration
     public function up()
     {
         Schema::create('pessoas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('cpf')->unique();
+            $table->text('adress');
+            $table->date('born_day');
+            $table->bigIncrements('id_contatos');
+
+            $table->foreign('id_contatos')->references('id_contatos')
+                  ->on('contatos')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
