@@ -9,7 +9,7 @@ class Pessoa extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'cpf', 'adress', 'born_day', 'id_contatos'
+        'name', 'cpf', 'adress', 'data_nascimento', 'id_contatos'
     ];
 
     public function contatos()

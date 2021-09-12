@@ -18,14 +18,11 @@ class CreatePessoasTable extends Migration
             $table->string('name');
             $table->string('cpf')->unique();
             $table->text('adress');
-            $table->date('born_day');
-            $table->bigIncrements('id_contatos');
-
-            $table->foreign('id_contatos')->references('id_contatos')
-                  ->on('contatos')
-                  ->onDelete('cascade');
-
+            $table->date('data_nascimento');
+            $table->unsignedBigInteger('id_contatos');
             $table->timestamps();
+
+            $table->index('id_contatos');
         });
     }
 
