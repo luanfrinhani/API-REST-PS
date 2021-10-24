@@ -17,6 +17,10 @@ class CreateContatosTable extends Migration
             $table->bigIncrements('id_contatos');
             $table->string('contato');
             $table->timestamps();
+
+            $table->foreign('id_contatos')->references('id_contatos')
+                ->on('pessoas')
+                ->onDelete('cascade');
         });
     }
 
